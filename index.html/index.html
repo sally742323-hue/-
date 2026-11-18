@@ -1,0 +1,296 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DATE ARCHIVE</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f8f6f2;
+  color: #39352f;
+}
+
+header {
+  background: #343e36;
+  color: white;
+  text-align: center;
+  padding: 65px 20px;
+}
+
+header h1 {
+  font-size: 38px;
+  letter-spacing: 5px;
+}
+
+header p {
+  margin-top: 15px;
+  color: #ddd9ce;
+}
+
+nav {
+  text-align: center;
+  padding: 20px;
+  background: white;
+}
+
+nav a {
+  text-decoration: none;
+  color: #555;
+  margin: 15px;
+}
+
+.intro {
+  text-align: center;
+  padding: 55px 20px 30px;
+}
+
+.intro h2 {
+  margin-bottom: 15px;
+  font-size: 25px;
+}
+
+.filters {
+  text-align: center;
+  padding: 20px;
+}
+
+.filters button {
+  padding: 11px 20px;
+  margin: 5px;
+  border: 1px solid #687767;
+  border-radius: 25px;
+  background: transparent;
+  color: #465447;
+  cursor: pointer;
+}
+
+.filters button.active,
+.filters button:hover {
+  background: #465447;
+  color: white;
+}
+
+.places {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px #00000010;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.info {
+  padding: 20px;
+}
+
+.category {
+  font-size: 12px;
+  color: #8a967e;
+}
+
+.info h3 {
+  margin: 10px 0;
+}
+
+.info p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #777;
+}
+
+.info button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background: #465447;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  margin-top: 50px;
+  padding: 35px;
+  text-align: center;
+  background: #343e36;
+  color: white;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>DATE ARCHIVE</h1>
+  <p>Find Your Own Special Place</p>
+  <p>우리만 알고 싶은 특별한 데이트 장소</p>
+</header>
+
+<nav>
+  <a href="#home">HOME</a>
+  <a href="#places">PLACES</a>
+  <a href="#about">ABOUT</a>
+</nav>
+
+<section class="intro" id="home">
+  <h2>오늘은 어디로 떠나볼까?</h2>
+  <p>
+    대전과 근교에서 만나는 특별한 데이트 장소<br>
+    조용한 공간부터 신나는 액티비티까지!
+  </p>
+</section>
+
+<div class="filters">
+  <button class="active" onclick="filterPlace('all',this)">
+    전체 보기
+  </button>
+  <button onclick="filterPlace('private',this)">
+    프라이빗 식당
+  </button>
+  <button onclick="filterPlace('healing',this)">
+    힐링 카페
+  </button>
+  <button onclick="filterPlace('active',this)">
+    액티비티
+  </button>
+</div>
+
+<section class="places" id="places">
+
+  <div class="card" data-type="private">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600">
+    <div class="info">
+      <span class="category">PRIVATE DINING</span>
+      <h3>한우전문점 눈꽃</h3>
+      <p>대전 탄방동 · 개별 룸과 개인화로를 갖춘 한우 전문점. 조용한 식사를 즐기기 좋은 곳.</p>
+      <button onclick="alert('방문 전 룸 예약 가능 여부를 확인하세요!')">장소 정보</button>
+    </div>
+  </div>
+
+  <div class="card" data-type="private">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600">
+    <div class="info">
+      <span class="category">ITALIAN DINING</span>
+      <h3>CIAO</h3>
+      <p>대전 전민동 · 파스타와 스테이크를 즐길 수 있는 룸 형태의 이탈리안 레스토랑.</p>
+      <button onclick="alert('방문 전 운영 정보를 확인하세요!')">장소 정보</button>
+    </div>
+  </div>
+
+  <div class="card" data-type="healing">
+    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=600">
+    <div class="info">
+      <span class="category">GARDEN CAFE</span>
+      <h3>카페 라밸리</h3>
+      <p>대전 낭월동 · 식물과 정원이 어우러진 공간에서 여유로운 커피 한 잔.</p>
+      <button onclick="alert('대전 낭월동에 위치한 정원 카페입니다.')">장소 정보</button>
+    </div>
+  </div>
+
+  <div class="card" data-type="healing">
+    <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600">
+    <div class="info">
+      <span class="category">LAKE VIEW CAFE</span>
+      <h3>카페 담</h3>
+      <p>대전 대청호 · 호수 풍경과 자연을 바라보며 산책과 휴식을 즐기는 장소.</p>
+      <button onclick="alert('대청호 드라이브 코스로 추천합니다!')">장소 정보</button>
+    </div>
+  </div>
+
+  <div class="card" data-type="active">
+    <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?w=600">
+    <div class="info">
+      <span class="category">SPORTS ACTIVITY</span>
+      <h3>스몹 대전</h3>
+      <p>대전 신세계 · 다양한 스포츠 체험을 한 공간에서 즐기는 실내 액티비티.</p>
+      <button onclick="alert('운동화와 이용 조건을 미리 확인하세요!')">장소 정보</button>
+    </div>
+  </div>
+
+  <div class="card" data-type="active">
+    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600">
+    <div class="info">
+      <span class="category">ESCAPE ROOM</span>
+      <h3>큐브이스케이프</h3>
+      <p>대전 둔산동 · 제한 시간 안에 단서를 찾아 미션을 해결하는 방탈출 체험.</p>
+      <button onclick="alert('테마와 예약 시간을 확인하세요!')">장소 정보</button>
+    </div>
+  </div>
+
+  <div class="card" data-type="active">
+    <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?w=600">
+    <div class="info">
+      <span class="category">THEME PARK</span>
+      <h3>대전 오월드</h3>
+      <p>대전 중구 · 놀이시설과 동물원, 플라워랜드를 함께 즐기는 야외 나들이.</p>
+      <button onclick="alert('방문 전 운영시간과 놀이시설 운영 여부를 확인하세요!')">장소 정보</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="intro" id="about">
+  <h2>ABOUT DATE ARCHIVE</h2>
+  <p>
+    유명한 장소보다 우리에게 잘 맞는 장소.<br>
+    특별한 하루를 위한 데이트 장소 아카이브입니다.
+  </p>
+</section>
+
+<footer>
+  <h3>DATE ARCHIVE ♡</h3>
+  <p>Make Every Moment Special.</p>
+</footer>
+
+<script>
+function filterPlace(type, button) {
+  const cards = document.querySelectorAll('.card');
+  const buttons = document.querySelectorAll('.filters button');
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+
+  cards.forEach(card => {
+    if (type === 'all' || card.dataset.type === type) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
